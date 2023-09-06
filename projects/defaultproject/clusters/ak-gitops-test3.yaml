@@ -43,5 +43,6 @@ spec:
           nodePoolSoakDuration: 3600s
         strategy: SURGE
         surgeSettings:
-          maxSurge: 1
+          maxSurge: 2
+          maxUnavailable: 1
   type: gke
