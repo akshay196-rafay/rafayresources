@@ -33,7 +33,7 @@ spec:
         machineType: e2-medium
         reservationAffinity:
           consumeReservationType: specific
-          reservationName: ak-reservation-1
+          reservationName: ak-reservation-2
       name: default-nodepool
       nodeVersion: "1.27"
       size: 2
