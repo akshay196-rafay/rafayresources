@@ -34,5 +34,10 @@ spec:
           runner:
             nodeSelector:
               key: value
+            tolerations:
+            - effect: NoSchedule
+              key: key1
+              operator: Equal
+              value: value1
             type: cluster
         name: ak-prehook
