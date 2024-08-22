@@ -1,0 +1,38 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: FleetPlan
+metadata:
+  name: ak-fleet-hook-test
+  project: defaultproject
+spec:
+  agents:
+  - name: fleet-agent
+  fleet:
+    kind: clusters
+    labels:
+      rafay.dev/clusterType: aws-eks
+    projects:
+    - name: defaultproject
+  operationWorkflow:
+    operations:
+    - action:
+        name: ak-patch
+        patchConfig:
+        - op: replace
+          path: .path
+          value: .value
+        type: patch
+      name: ak-operation
+      posthooks:
+      - containerConfig:
+          image: nginx
+          runner:
+            type: cluster
+        name: ak-posthook
+      prehooks:
+      - containerConfig:
+          image: nginx
+          runner:
+            nodeSelector:
+              key: value
+            type: cluster
+        name: ak-prehook

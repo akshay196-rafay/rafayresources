@@ -1,0 +1,42 @@
+apiVersion: infra.k8smgmt.io/v3
+kind: FleetPlan
+metadata:
+  name: new-test1
+  project: defaultproject
+spec:
+  agents:
+  - name: fleet-agent
+  fleet:
+    kind: clusters
+    labels:
+      rafay.dev/clusterType: aws-eks
+    projects:
+    - name: defaultproject
+  operationWorkflow:
+    operations:
+    - action:
+        name: upgrade-nodegroup
+        nodeGroupsUpgradeConfig:
+          names:
+          - ng2
+          version: "1.29"
+        type: nodeGroupsUpgrade
+      name: newtest1
+      prehooks:
+      - containerConfig:
+          arguments:
+          - "60"
+          commands:
+          - sleep
+          image: busybox
+          runner:
+            nodeSelector:
+              asd: xyz
+            tolerations:
+            - effect: NoExecute
+              key: key
+              operator: Equal
+              tolerationSeconds: 3600
+              value: value
+            type: cluster
+        name: prehook
