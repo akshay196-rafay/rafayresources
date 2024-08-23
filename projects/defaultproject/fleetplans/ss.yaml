@@ -22,8 +22,6 @@ spec:
       - containerConfig:
           image: bitnami/kubectl:latest
           runner:
-            nodeSelector:
-              key: val
             tolerations:
             - effect: PreferNoSchedule
               key: key2
