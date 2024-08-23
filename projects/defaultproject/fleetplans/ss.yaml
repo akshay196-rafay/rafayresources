@@ -25,10 +25,9 @@ spec:
             nodeSelector:
               key: val
             tolerations:
-            - effect: NoExecute
+            - effect: PreferNoSchedule
               key: key
               operator: Equal
-              tolerationSeconds: 3600
               value: value
             type: cluster
         name: pre
