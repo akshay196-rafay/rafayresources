@@ -26,7 +26,7 @@ spec:
               key: val
             tolerations:
             - effect: PreferNoSchedule
-              key: key
+              key: key2
               operator: Equal
               value: value2
             type: cluster
