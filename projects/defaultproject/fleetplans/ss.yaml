@@ -23,7 +23,7 @@ spec:
           image: bitnami/kubectl:latest
           runner:
             nodeSelector:
-              key: val
+              key: value
             tolerations:
             - effect: PreferNoSchedule
               key: key
