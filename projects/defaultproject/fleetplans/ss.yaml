@@ -23,11 +23,11 @@ spec:
           image: bitnami/kubectl:latest
           runner:
             nodeSelector:
-              key: value
+              key: val
             tolerations:
             - effect: PreferNoSchedule
               key: key
               operator: Equal
-              value: value
+              value: value2
             type: cluster
         name: pre
