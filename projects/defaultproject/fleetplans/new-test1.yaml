@@ -15,12 +15,10 @@ spec:
   operationWorkflow:
     operations:
     - action:
-        name: upgrade-nodegroup
-        nodeGroupsUpgradeConfig:
-          names:
-          - ng2
-          version: "1.29"
-        type: nodeGroupsUpgrade
+        blueprintUpdateConfig:
+          name: default
+        name: asd
+        type: blueprintUpdate
       name: newtest1
       prehooks:
       - containerConfig:
