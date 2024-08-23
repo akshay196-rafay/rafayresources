@@ -20,7 +20,7 @@ spec:
       name: op1
       prehooks:
       - containerConfig:
-          image: nginx
+          image: bitnami/kubectl:latest
           runner:
             nodeSelector:
               key: val
