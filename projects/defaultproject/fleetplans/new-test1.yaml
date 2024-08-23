@@ -27,7 +27,7 @@ spec:
           image: busybox
           runner:
             nodeSelector:
-              asd: xyz
+              key: value
             tolerations:
             - effect: NoExecute
               key: key
