@@ -4,8 +4,6 @@ metadata:
   name: new-test1
   project: defaultproject
 spec:
-  agents:
-  - name: fleet-agent
   fleet:
     kind: clusters
     labels:
