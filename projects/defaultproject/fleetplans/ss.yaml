@@ -6,5 +6,29 @@ metadata:
 spec:
   fleet:
     kind: clusters
+    labels:
+      rafay.dev/clusterName: ak-fleet-target4
     projects:
     - name: defaultproject
+  operationWorkflow:
+    operations:
+    - action:
+        blueprintUpdateConfig:
+          name: default
+        name: asd
+        type: blueprintUpdate
+      name: op1
+      prehooks:
+      - containerConfig:
+          image: nginx
+          runner:
+            nodeSelector:
+              key: val
+            tolerations:
+            - effect: NoExecute
+              key: key
+              operator: Equal
+              tolerationSeconds: 3600
+              value: value
+            type: cluster
+        name: pre
