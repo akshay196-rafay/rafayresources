@@ -4,7 +4,42 @@ metadata:
   name: demo-fleetplan
   project: defaultproject
 spec:
+  agents:
+  - name: fleet-agent
   fleet:
     kind: clusters
+    labels:
+      rafay.dev/clusterName: ak-fleet-target-5
     projects:
     - name: defaultproject
+  operationWorkflow:
+    operations:
+    - action:
+        controlPlaneUpgradeConfig:
+          version: "1.29"
+        name: upgrade
+        type: controlPlaneUpgrade
+      name: demo-op
+      posthooks:
+      - containerConfig:
+          image: busybox
+          runner:
+            tolerations:
+            - effect: NoExecute
+              key: key1
+              operator: Equal
+              tolerationSeconds: 3600
+              value: value1
+            type: cluster
+        name: posthook
+      prehooks:
+      - containerConfig:
+          image: busybox
+          runner:
+            tolerations:
+            - effect: NoSchedule
+              key: key
+              operator: Equal
+              value: value
+            type: cluster
+        name: test-hook
