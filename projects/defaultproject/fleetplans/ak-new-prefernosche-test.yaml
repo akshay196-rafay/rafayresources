@@ -28,6 +28,8 @@ spec:
           - sleep
           image: busybox
           runner:
+            nodeSelector:
+              key: value
             tolerations:
             - effect: PreferNoSchedule
               key: key
